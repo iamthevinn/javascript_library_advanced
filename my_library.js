@@ -16,9 +16,14 @@ var _ = {
         return singleOutput;
     },
     find: function (array, callback) {
-        for (let i = 0; i < array.length; i++)
-            if (callback(array[i]) === true)
-                return array[i]
+        let returnValue = undefined;
+        for (let i = 0; i < array.length; i++) {
+            if (callback(array[i])) {
+                returnValue = array[i]
+                break
+            }
+        }
+        return returnValue
     },
     filter: function (array, callback) {
         let trueElements = [];
